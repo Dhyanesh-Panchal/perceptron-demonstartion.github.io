@@ -6,12 +6,23 @@ class Point {
     }
 
     show(perceptron) {
-        if (perceptron.output([ this.x, this.y ]) == this.label) {
+
+        // ? perceptron guessed
+        if (perceptron.output([ this.x, this.y ]) == 1) {
             fill('#41f06d')
         }
         else {
             fill('#f04141')
         }
+
+
+        // ? Actual 
+        // if (this.label == 1) {
+        //     fill('#41f06d')
+        // }
+        // else {
+        //     fill('#f04141')
+        // }
         circle(this.x, -this.y, 7);
     }
 }

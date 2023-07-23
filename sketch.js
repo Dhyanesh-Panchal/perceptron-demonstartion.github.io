@@ -16,10 +16,7 @@ function setup() {
 		points[ i ] = new Point(width - 200, height - 200);
 	}
 
-	// Generating random points for training 
-	for (let i = 0; i < points.length; i++) {
-		points[ i ] = new Point(width - 200, height - 200);
-	}
+
 	console.log("The Points are :", points)
 }
 
@@ -32,15 +29,24 @@ function draw() {
 	line(0, 0, width - 200, 0);
 	line(0, 0, 0, -(height - 200));
 	strokeWeight(1);
-	line(0, 0,500, -500);
+	line(0, 0, 500, -500);
 
-	// Train perceptron
-	trainPoints.forEach(point => {
-		p.train([point.x,point.y],point.label);
-	});
+	console.log("again")
 
 	points.forEach(point => {
 		point.show(p);
 	});
+}
 
+function mouseClicked() {
+
+	console.log("Training!!!")
+	// Generating random points for training 
+	for (let i = 0; i < trainPoints.length; i++) {
+		trainPoints[ i ] = new Point(width - 200, height - 200);
+	}
+	// Train perceptron
+	trainPoints.forEach(point => {
+		p.train([ point.x, point.y ], point.label);
+	});
 }

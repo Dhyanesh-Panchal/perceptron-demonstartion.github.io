@@ -1,5 +1,6 @@
 class Perceptron {
-    weights = []
+    weights = [];
+    lr = 0.0001; //--> leraning rate
 
     constructor() {
         // initialize the weights randomly
@@ -29,7 +30,7 @@ class Perceptron {
         {
             // Adjust weights
             for (let i = 0; i < this.weights.length; i++) {
-                this.weights[ i ] += this.weights[ i ] + error * inputs[ i ];
+                this.weights[ i ] += this.weights[ i ] + error * inputs[ i ] * this.lr;
             }
         }
     }
