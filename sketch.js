@@ -1,30 +1,6 @@
 let p;
 let points = new Array(100);
-
-class Point {
-	constructor(width, height) {
-		this.x = Math.random() * width;
-		this.y = Math.random() * height;
-		this.label = (this.x > (this.y)) ? (-1) : (1);
-	}
-
-	show(perceptron) {
-		// if (this.label == -1) {
-		// 	fill('black');
-		// }
-		// else {
-		// 	fill('white');
-		// }
-		if (perceptron.output([ this.x, this.y ]) == this.label) {
-			fill('#41f06d')
-		}
-		else {
-			fill('#f04141')
-		}
-		circle(this.x, -this.y, 7);
-	}
-}
-
+let trainPoints = new Array(100);
 
 
 function setup() {
@@ -36,6 +12,11 @@ function setup() {
 	// console.log(p.output(inputs));
 
 	// Generating random points 
+	for (let i = 0; i < points.length; i++) {
+		points[ i ] = new Point(width - 200, height - 200);
+	}
+
+	// Generating random points for training 
 	for (let i = 0; i < points.length; i++) {
 		points[ i ] = new Point(width - 200, height - 200);
 	}
@@ -51,6 +32,12 @@ function draw() {
 	line(0, 0, width - 200, 0);
 	line(0, 0, 0, -(height - 200));
 	strokeWeight(1);
+	line(0, 0,500, -500);
+
+	// Train perceptron
+	trainPoints.forEach(point => {
+		p.train([point.x,point.y],point.label);
+	});
 
 	points.forEach(point => {
 		point.show(p);
