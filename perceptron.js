@@ -33,5 +33,7 @@ class Perceptron {
                 this.weights[ i ] += this.weights[ i ] + error * inputs[ i ] * this.lr;
             }
         }
+
+        console.log("New Weights:", this.weights)
     }
 }
