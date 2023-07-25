@@ -3,8 +3,8 @@ class Perceptron {
     lr = 0.0001; //--> leraning rate
 
     constructor() {
-        // initialize the weights randomly
-        this.weights.push(Math.random() - 0.5, Math.random() - 0.5)
+        // initialize the weights randomly between (-1,1)
+        this.weights.push(2*(Math.random() - 0.5), 2*(Math.random() - 0.5))
     }
 
 

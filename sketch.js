@@ -31,7 +31,6 @@ function draw() {
 	strokeWeight(1);
 	line(0, 0, 500, -500);
 
-	console.log("again")
 
 	points.forEach(point => {
 		point.show(p);
