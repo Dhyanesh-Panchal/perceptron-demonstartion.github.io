@@ -23,6 +23,8 @@ function setup() {
 }
 
 function draw() {
+	classifyer_slope = document.getElementById('slope').value;
+	// console.log(classifyer_slope)
 	background(20, 20, 20);
 	// translate(100, 600);
 	fill('white');
@@ -44,12 +46,12 @@ function mouseClicked() {
 
 	// Generating random points for training 
 	for (let i = 0; i < trainPoints.length; i++) {
-		trainPoints[ i ] = new Point(width - 200, height - 200);
+		trainPoints[ i ] = new Point(width - 200, height - 200,classifyer_slope);
 	}
 
 
 	// Train perceptron
-	points.forEach(point => {
+	trainPoints.forEach(point => {
 		p.train([ point.x, point.y ], point.label);
 	});
 
