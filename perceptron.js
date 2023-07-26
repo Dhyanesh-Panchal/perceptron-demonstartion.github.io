@@ -13,6 +13,7 @@ class Perceptron {
         return x >= 0 ? (1) : (-1)
     }
 
+
     // Output of the perceptron
     output(inputs) {
         let sum = 0;
@@ -25,10 +26,16 @@ class Perceptron {
 
 
     train(inputs, label) {
-        let error = label - this.output(inputs);
+        let output = this.output(inputs)
+        let error = label - output;
+
+        console.log(inputs)
+        console.log("Label: ",label);
+        console.log("Output: ",output);
 
         if (error)  //--> error is -2 or +2
         {
+            console.log("error for this point:");
             // Adjust weights
             for (let i = 0; i < this.weights.length; i++) {
                 this.weights[ i ] += error * inputs[ i ] * this.lr;
