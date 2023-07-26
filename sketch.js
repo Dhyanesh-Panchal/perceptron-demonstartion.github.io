@@ -1,6 +1,6 @@
 let p;
-let points = new Array(100);
-let trainPoints = new Array(100);
+let points = new Array(1000);
+let trainPoints = new Array(1000);
 
 
 function setup() {

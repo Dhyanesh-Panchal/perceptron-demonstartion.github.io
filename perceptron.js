@@ -1,6 +1,6 @@
 class Perceptron {
     weights = [];
-    lr = 0.0001; //--> leraning rate
+    lr = 0.001; //--> learning rate
 
     constructor() {
         // initialize the weights randomly between (-1,1)
@@ -13,6 +13,7 @@ class Perceptron {
         return x >= 0 ? (1) : (-1)
     }
 
+    // Output of the perceptron
     output(inputs) {
         let sum = 0;
         for (let i = 0; i < this.weights.length; i++) {
