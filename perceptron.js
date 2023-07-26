@@ -31,7 +31,7 @@ class Perceptron {
         {
             // Adjust weights
             for (let i = 0; i < this.weights.length; i++) {
-                this.weights[ i ] += this.weights[ i ] + error * inputs[ i ] * this.lr;
+                this.weights[ i ] += error * inputs[ i ] * this.lr;
             }
         }
 
