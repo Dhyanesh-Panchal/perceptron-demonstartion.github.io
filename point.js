@@ -23,6 +23,6 @@ class Point {
         // else {
         //     fill('#f04141')
         // }
-        circle(this.x, -this.y, 7);
+        circle(this.x, -this.y, 3);
     }
 }

@@ -1,6 +1,6 @@
 let p;
-let points = new Array(1000);
-let trainPoints = new Array(1000);
+let points = new Array(10000);
+let trainPoints = new Array(10000);
 
 
 function setup() {
@@ -48,4 +48,6 @@ function mouseClicked() {
 	trainPoints.forEach(point => {
 		p.train([ point.x, point.y ], point.label);
 	});
+
+	console.log("final weight:", p.weights)
 }

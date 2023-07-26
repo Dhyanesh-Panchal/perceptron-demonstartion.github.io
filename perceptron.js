@@ -35,6 +35,6 @@ class Perceptron {
             }
         }
 
-        console.log("New Weights:", this.weights)
+        // console.log("New Weights:", this.weights)
     }
 }
