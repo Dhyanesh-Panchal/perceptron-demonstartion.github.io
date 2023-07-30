@@ -1,6 +1,6 @@
 let p;
-let points = new Array(10000);
-let trainPoints = new Array(10000);
+let points = new Array(1000);
+let trainPoints = new Array(1000);
 let classifyer_slope = 0;
 let classifyer_c = 0;
 
@@ -15,7 +15,7 @@ function setup() {
 	ymax = height / 2;
 	xmax = width / 2;
 	// put setup code here
-	p = new Perceptron();
+	p = new Perceptron(classifyer_c);
 	// console.log("The weights are:", p.weights);
 	// console.log(p.output(inputs));
 
@@ -66,7 +66,7 @@ function mouseClicked() {
 
 	// Train perceptron
 	trainPoints.forEach(point => {
-		p.train([ point.x, point.y ], point.label);
+		p.train([ point.x, point.y ], point.label,classifyer_c);
 	});
 
 	console.log("final weight:", p.weights)

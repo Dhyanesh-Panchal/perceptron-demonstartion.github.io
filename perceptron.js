@@ -1,14 +1,19 @@
+// --> The Relation between weighys and linear classification comesout to be:
+// --> y = (w[1]/w[0]) * x + bias           
+
 class Perceptron {
     weights = [];
     lr = 0.001; //--> learning rate
+    bias = 0;
 
-    constructor() {
+    constructor(bias) {
         // initialize the weights randomly between (-1,1)
-        this.weights.push(2*(Math.random() - 0.5), 2*(Math.random() - 0.5))
+        this.weights.push(2*(Math.random() - 0.5), 2*(Math.random() - 0.5));
+        this.bias = bias;
     }
 
 
-    // Activation function 
+    // Activation function  
     sign(x) {
         return x >= 0 ? (1) : (-1)
     }
@@ -16,7 +21,7 @@ class Perceptron {
 
     // Output of the perceptron
     output(inputs) {
-        let sum = 0;
+        let sum = this.bias;
         for (let i = 0; i < this.weights.length; i++) {
             sum += this.weights[ i ] * inputs[ i ];
         }
@@ -25,7 +30,8 @@ class Perceptron {
     }
 
 
-    train(inputs, label) {
+    train(inputs, label,bias) {
+        this.bias = bias
         let output = this.output(inputs)
         let error = label - output;
 
