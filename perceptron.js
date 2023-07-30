@@ -31,7 +31,6 @@ class Perceptron {
 
 
     train(inputs, label,bias) {
-        this.bias = bias
         let output = this.output(inputs)
         let error = label - output;
 
@@ -47,6 +46,8 @@ class Perceptron {
                 this.weights[ i ] += error * inputs[ i ] * this.lr;
             }
         }
+        // Adjust bias
+        this.bias += error * bias * this.lr;
 
         // console.log("New Weights:", this.weights)
     }
