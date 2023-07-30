@@ -19,18 +19,7 @@ class Point {
         // }
 
 
-        // if (perceptron.output([ this.x, this.y ]) == 1) {
-        //     fill('#41f06d')
-        //     noStroke();
-        // }
-        // else {
-        //     fill('#f04141')
-        //     noStroke();
-        // }
-
-
-        // ? Actual 
-        if (this.label == 1) {
+        if (perceptron.output([ this.x, this.y ]) == 1) {
             fill('#41f06d')
             noStroke();
         }
@@ -38,6 +27,17 @@ class Point {
             fill('#f04141')
             noStroke();
         }
+
+
+        // ? Actual 
+        // if (this.label == 1) {
+        //     fill('#41f06d')
+        //     noStroke();
+        // }
+        // else {
+        //     fill('#f04141')
+        //     noStroke();
+        // }
         circle(this.x, this.y, 8);
     }
 }
