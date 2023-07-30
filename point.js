@@ -1,8 +1,8 @@
 class Point {
-    constructor(width, height, classifyer_slope = 1) {
+    constructor(width, height, classifyer_slope = 1 , classifyer_c = 0) {
         this.x = (Math.random() - 0.5) * 2 * width;
         this.y = (Math.random() - 0.5) * 2 * height;
-        this.label = (this.x * classifyer_slope >= (this.y)) ? (-1) : (1); // --> Classifyer line x=y
+        this.label = (this.x * classifyer_slope  + classifyer_c >= (this.y)) ? (-1) : (1); // --> Classifyer line x=y
     }
 
     show(perceptron) {

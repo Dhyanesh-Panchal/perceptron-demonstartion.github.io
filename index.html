@@ -27,6 +27,10 @@
 			width: 30px;
 		}
 
+		#slope{
+			width: 400px;
+		}
+
 		canvas {
 			margin: auto;
 		}
@@ -36,7 +40,7 @@
 <body>
 	<h1>Perceptron Demonstration on linear classification</h1>
 	<label for="slope">Slide to adjust Slope and Click to train more</label>
-	<input type="range" name="slope" id="slope" min="-9" max="9" step="0.0001">
+	<input type="range" name="slope" id="slope" min="-9" max="9" step="0.0001" >
 	<div>
 		<label for="c">For y = mx + c Enter the Value of c:</label>
 		<input type="number" name="c" id="c" width="10px" value="0">
