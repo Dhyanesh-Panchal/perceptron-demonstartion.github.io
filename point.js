@@ -1,7 +1,7 @@
 class Point {
     constructor(width, height, classifyer_slope = 1) {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
+        this.x = (Math.random() - 0.5) * 2 * width;
+        this.y = (Math.random() - 0.5) * 2 * height;
         this.label = (this.x * classifyer_slope >= (this.y)) ? (-1) : (1); // --> Classifyer line x=y
     }
 

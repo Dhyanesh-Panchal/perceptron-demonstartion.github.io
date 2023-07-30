@@ -26,14 +26,14 @@ function draw() {
 	classifyer_slope = document.getElementById('slope').value;
 	// console.log(classifyer_slope)
 	background(20, 20, 20);
-	// translate(100, 600);
+	translate(width/2,height/2 );
 	fill('white');
 	stroke('white');
 	strokeWeight(3);
-	line(0, 0, width+20, 0);
-	line(0, 0, 0, height+20);
+	line(-(width+20), 0, width+20, 0);
+	line(0, -(height+20), 0, height+20);
 	strokeWeight(1);
-	line(0, 0, (500 + margin)/classifyer_slope, 500 + margin);
+	line(-((500 + margin)/classifyer_slope), -(500 + margin), (500 + margin)/classifyer_slope, 500 + margin);
 
 	points.forEach(point => {
 		point.show(p);
