@@ -1,7 +1,7 @@
 let p;
 let points = new Array(100);
 let trainPoints = new Array(10000);
-let classifyer_slope = 1;
+let classifyer_slope = 0;
 let classifyer_c = 0;
 
 let ymax, xmax;
@@ -41,7 +41,13 @@ function draw() {
 	line(-(width + 20), 0, width + 20, 0);
 	line(0, -(height + 20), 0, height + 20);
 	strokeWeight(1);
-	line(-((ymax - classifyer_c) / classifyer_slope), -(ymax), ((ymax + classifyer_c) / classifyer_slope), ymax);
+	if(classifyer_slope == 0)
+	{
+		line(-xmax, - classifyer_c, xmax, - classifyer_c);
+	}
+	else{
+		line(-((ymax - classifyer_c) / classifyer_slope), -(ymax), ((ymax + classifyer_c) / classifyer_slope), ymax);
+	}
 
 	points.forEach(point => {
 		point.show(p);
