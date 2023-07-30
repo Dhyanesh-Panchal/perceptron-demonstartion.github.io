@@ -1,6 +1,6 @@
 let p;
-let points = new Array(1000);
-let trainPoints = new Array(1000);
+let points = new Array(100);
+let trainPoints = new Array(10000);
 let classifyer_slope = 1;
 let classifyer_c = 0;
 
@@ -21,7 +21,7 @@ function setup() {
 
 	// Generating random points 
 	for (let i = 0; i < points.length; i++) {
-		points[ i ] = new Point(width - margin, height - margin, classifyer_slope, classifyer_c);
+		points[ i ] = new Point(xmax - margin, ymax - margin, classifyer_slope, classifyer_c);
 	}
 
 
@@ -48,20 +48,20 @@ function draw() {
 	});
 }
 
-// function mouseClicked() {
+function mouseClicked() {
 
-// 	console.log("Training!!!")
+	console.log("Training!!!")
 
-// 	// Generating random points for training 
-// 	for (let i = 0; i < trainPoints.length; i++) {
-// 		trainPoints[ i ] = new Point(width - 200, height - 200,classifyer_slope , classifyer_c);
-// 	}
+	// Generating random points for training 
+	for (let i = 0; i < trainPoints.length; i++) {
+		trainPoints[ i ] = new Point(xmax, ymax,classifyer_slope , classifyer_c);
+	}
 
 
-// 	// Train perceptron
-// 	trainPoints.forEach(point => {
-// 		p.train([ point.x, point.y ], point.label);
-// 	});
+	// Train perceptron
+	trainPoints.forEach(point => {
+		p.train([ point.x, point.y ], point.label);
+	});
 
-// 	console.log("final weight:", p.weights)
-// }
+	console.log("final weight:", p.weights)
+}
