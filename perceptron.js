@@ -8,7 +8,7 @@ class Perceptron {
 
     constructor(bias) {
         // initialize the weights randomly between (-1,1)
-        this.weights.push(2*(Math.random() - 0.5), 2*(Math.random() - 0.5));
+        this.weights.push(2 * (Math.random() - 0.5), 2 * (Math.random() - 0.5));
         this.bias = bias;
     }
 
@@ -30,13 +30,13 @@ class Perceptron {
     }
 
 
-    train(inputs, label,bias) {
+    train(inputs, label, bias) {
         let output = this.output(inputs)
         let error = label - output;
 
         console.log(inputs)
-        console.log("Label: ",label);
-        console.log("Output: ",output);
+        console.log("Label: ", label);
+        console.log("Output: ", output);
 
         if (error)  //--> error is -2 or +2
         {
@@ -47,6 +47,7 @@ class Perceptron {
             }
         }
         // Adjust bias
+        bias = bias >= 0 ? bias : -bias;
         this.bias += error * bias * this.lr;
 
         // console.log("New Weights:", this.weights)
