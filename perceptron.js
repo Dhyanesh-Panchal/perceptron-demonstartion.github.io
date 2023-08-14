@@ -14,8 +14,12 @@ class Perceptron {
 
 
     // Activation function  
-    sign(x) {
+    activation(x) {
+        // ? sign function
         return x >= 0 ? (1) : (-1)
+
+
+        // return x > 100 ? (1) : (-1)
     }
 
 
@@ -25,8 +29,8 @@ class Perceptron {
         for (let i = 0; i < this.weights.length; i++) {
             sum += this.weights[ i ] * inputs[ i ];
         }
-        //--> using sign as activation function
-        return this.sign(sum);
+        //--> using different function as activation function
+        return this.activation(sum);
     }
 
 

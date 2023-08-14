@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-	classifyer_slope = Number(document.getElementById('slope').value) ;
+	classifyer_slope = Number(document.getElementById('slope').value);
 	classifyer_c = Number(document.getElementById('c').value);
 	console.log(classifyer_slope);
 	// console.log(classifyer_slope)
@@ -41,11 +41,10 @@ function draw() {
 	line(-(width + 20), 0, width + 20, 0);
 	line(0, -(height + 20), 0, height + 20);
 	strokeWeight(1);
-	if(classifyer_slope == 0)
-	{
+	if (classifyer_slope == 0) {
 		line(-xmax, - classifyer_c, xmax, - classifyer_c);
 	}
-	else{
+	else {
 		line(-((ymax - classifyer_c) / classifyer_slope), -(ymax), ((ymax + classifyer_c) / classifyer_slope), ymax);
 	}
 
@@ -60,13 +59,13 @@ function mouseClicked() {
 
 	// Generating random points for training 
 	for (let i = 0; i < trainPoints.length; i++) {
-		trainPoints[ i ] = new Point(xmax, ymax,classifyer_slope , classifyer_c);
+		trainPoints[ i ] = new Point(xmax, ymax, classifyer_slope, classifyer_c);
 	}
 
 
 	// Train perceptron
 	trainPoints.forEach(point => {
-		p.train([ point.x, point.y ], point.label,classifyer_c);
+		p.train([ point.x, point.y ], point.label, classifyer_c);
 	});
 
 	console.log("final weight:", p.weights)
