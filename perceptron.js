@@ -1,5 +1,5 @@
 // --> The Relation between weighys and linear classification comesout to be:
-// --> y = (w[1]/w[0]) * x + bias           
+// --> y = ( - w[0]/w[1] ) * x + bias           
 
 class Perceptron {
     weights = [];
@@ -55,5 +55,22 @@ class Perceptron {
         this.bias += error * bias * this.lr;
 
         // console.log("New Weights:", this.weights)
+    }
+
+    drawClassifierLine(xmax, ymax) {
+
+        let slope = - this.weights[ 0 ] / this.weights[ 1 ];
+
+        console.log('the gussed slope is : ', slope);
+
+        strokeWeight(3);
+        stroke('#41e7f0')
+        if (slope == 0) {
+            line(-xmax, - this.bias, xmax, - this.bias);
+        }
+        else {
+            console.log("Drawing the line")
+            line(-((ymax - this.bias) / slope), -(ymax), ((ymax + this.bias) / slope), ymax);
+        }
     }
 }

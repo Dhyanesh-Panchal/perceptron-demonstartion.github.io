@@ -1,6 +1,6 @@
 let p;
 let points = new Array(1000);
-let trainPoints = new Array(10000);
+let trainPoints = new Array(1000);
 let classifyer_slope = 0;
 let classifyer_c = 0;
 
@@ -10,11 +10,11 @@ let margin = 40;
 
 
 function setup() {
+	// put setup code here
 	createCanvas(1000 + margin, 500 + margin);
 
 	ymax = height / 2;
 	xmax = width / 2;
-	// put setup code here
 	p = new Perceptron(classifyer_c);
 	// console.log("The weights are:", p.weights);
 	// console.log(p.output(inputs));
@@ -48,6 +48,9 @@ function draw() {
 		line(-((ymax - classifyer_c) / classifyer_slope), -(ymax), ((ymax + classifyer_c) / classifyer_slope), ymax);
 	}
 
+	// Drawing the classifier line
+	p.drawClassifierLine(xmax, ymax);
+
 	points.forEach(point => {
 		point.show(p);
 	});
@@ -67,6 +70,8 @@ function mouseClicked() {
 	trainPoints.forEach(point => {
 		p.train([ point.x, point.y ], point.label, classifyer_c);
 	});
+
+
 
 	console.log("final weight:", p.weights)
 }
