@@ -14,7 +14,7 @@ class Perceptron {
 
 
     // Activation function  
-    activation(x) {
+    #activation(x) {
         // ? sign function
         return x >= 0 ? (1) : (-1)
 
@@ -30,7 +30,7 @@ class Perceptron {
             sum += this.weights[ i ] * inputs[ i ];
         }
         //--> using different function as activation function
-        return this.activation(sum);
+        return this.#activation(sum);
     }
 
 
@@ -38,13 +38,15 @@ class Perceptron {
         let output = this.output(inputs)
         let error = label - output;
 
-        console.log(inputs)
-        console.log("Label: ", label);
-        console.log("Output: ", output);
+        // console.log(inputs)
+        // console.log("Label: ", label);
+        // console.log("Output: ", output);
 
         if (error)  //--> error is -2 or +2
         {
             console.log("error for this point:");
+            console.log("Label: ", label);
+            console.log("Output: ", output);
             // Adjust weights
             for (let i = 0; i < this.weights.length; i++) {
                 this.weights[ i ] += error * inputs[ i ] * this.lr;
@@ -61,7 +63,7 @@ class Perceptron {
 
         let slope = - this.weights[ 0 ] / this.weights[ 1 ];
 
-        console.log('the gussed slope is : ', slope);
+        // console.log('the gussed slope is : ', slope);
 
         strokeWeight(3);
         stroke('#41e7f0')
@@ -69,7 +71,7 @@ class Perceptron {
             line(-xmax, - this.bias, xmax, - this.bias);
         }
         else {
-            console.log("Drawing the line")
+            // console.log("Drawing the line")
             line(-((ymax - this.bias) / slope), -(ymax), ((ymax + this.bias) / slope), ymax);
         }
     }
