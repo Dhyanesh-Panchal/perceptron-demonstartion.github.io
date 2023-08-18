@@ -19,6 +19,7 @@ class Perceptron {
         return x >= 0 ? (1) : (-1)
 
 
+        // using different function as activation function
         // return x > 100 ? (1) : (-1)
     }
 
@@ -29,7 +30,6 @@ class Perceptron {
         for (let i = 0; i < this.weights.length; i++) {
             sum += this.weights[ i ] * inputs[ i ];
         }
-        //--> using different function as activation function
         return this.#activation(sum);
     }
 
@@ -61,7 +61,9 @@ class Perceptron {
 
     drawClassifierLine(xmax, ymax) {
 
-        let slope = - this.weights[ 0 ] / this.weights[ 1 ];
+        // let slope = - this.weights[ 0 ] / this.weights[ 1 ];
+
+        let [ w1, w2 ] = this.weights;
 
         // console.log('the gussed slope is : ', slope);
 
@@ -72,7 +74,7 @@ class Perceptron {
         }
         else {
             // console.log("Drawing the line")
-            line(-((ymax - this.bias) / slope), -(ymax), ((ymax + this.bias) / slope), ymax);
+            line(-((-w2 * ymax + this.bias) / w1), -(ymax), ((-w2 * ymax - this.bias) / w1), ymax);
         }
     }
 }
