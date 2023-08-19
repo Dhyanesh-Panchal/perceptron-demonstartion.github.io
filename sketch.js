@@ -1,6 +1,6 @@
 let p;
 let points = new Array(1000);
-let trainPoints = new Array(1000);
+let trainPoints = new Array(100000);
 let classifyer_slope = 0;
 let classifyer_c = 0;
 

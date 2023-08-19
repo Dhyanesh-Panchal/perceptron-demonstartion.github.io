@@ -3,7 +3,7 @@
 
 class Perceptron {
     weights = [];
-    lr = 0.001; //--> learning rate
+    lr = 0.0001; //--> learning rate
     bias = 0;
 
     constructor(bias) {
