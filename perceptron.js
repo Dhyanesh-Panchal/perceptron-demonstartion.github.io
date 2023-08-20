@@ -3,7 +3,7 @@
 
 class Perceptron {
     weights = [];
-    lr = 0.0000001; //--> learning rate
+    lr = 0.00000001; //--> learning rate
     bias = 0;
 
     constructor(bias) {
@@ -38,13 +38,13 @@ class Perceptron {
         let output = this.output(inputs)
         let error = label - output;
 
-        // console.log(inputs)
         // console.log("Label: ", label);
         // console.log("Output: ", output);
 
         if (error)  //--> error is -2 or +2
         {
             console.log("error for this point:");
+            console.log(inputs)
             console.log("Label: ", label);
             console.log("Output: ", output);
             // Adjust weights
@@ -54,7 +54,7 @@ class Perceptron {
         }
         // Adjust bias
         bias = bias >= 0 ? bias : -bias;
-        this.bias += error * bias * this.lr;
+        this.bias += error * bias * (this.lr * 1000); // this bias was moving too slowly so added some 0s to lr
 
         // console.log("New Weights:", this.weights)
     }
